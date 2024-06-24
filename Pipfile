@@ -9,6 +9,7 @@ uvicorn = "*"
 pillow = "*"
 matplotlib = "*"
 pytest = "*"
+numpy = "*"
 
 [dev-packages]
 
