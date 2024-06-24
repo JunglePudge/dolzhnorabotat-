@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>Upload an image to resize</h1>
+    <form id="upload-form" action="/resize" method="post" enctype="multipart/form-data">
+        <label for="image">Select image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <br>
+        <label for="scale">Scale (0.1 to 1.0):</label>
+        <input type="number" id="scale" name="scale" min="0.1" max="1.0" step="0.1" required>
+        <br>
+        <input type="hidden" id="recaptcha_response" name="recaptcha_response">
+        <div class="g-recaptcha" data-sitekey="6LdaiQAqAAAAAJ3FuuD4xAKNIz7dZaPtD7lVPWfk" data-callback="setRecaptchaResponse"></div>
+        <br>
+        <input type="submit" value="Resize Image">
+    </form>
+    <script>
+        function setRecaptchaResponse(response) {
+            document.getElementById('recaptcha_response').value = response;
+        }
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            if (!document.getElementById('recaptcha_response').value) {
+                event.preventDefault();
+                alert('Please complete the reCAPTCHA');
+            }
+        });
+    </script>
+</body>
+</html>

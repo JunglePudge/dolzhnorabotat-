@@ -6,9 +6,13 @@ import matplotlib.pyplot as plt
 import io
 import base64
 import numpy as np
+import httpx
 
 app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")
+
+RECAPTCHA_SECRET_KEY = "6LdaiQAqAAAAALIL-y7hXNDO-MeJsdQvet7FbPVS"
+
 
 def resize_image(image: Image.Image, scale: float) -> Image.Image:
     new_size = (int(image.width * scale), int(image.height * scale))
@@ -16,30 +20,22 @@ def resize_image(image: Image.Image, scale: float) -> Image.Image:
 
 
 def plot_color_distribution(image: Image.Image):
-    # Convert image to numpy array
     image_array = np.array(image.convert('RGB'))
-
-    # Flatten the array
     reshaped_array = image_array.reshape(-1, 3)
-
-    # Get unique colors and their counts
     unique_colors, counts = np.unique(reshaped_array, axis=0, return_counts=True)
 
     if len(counts) == 0:
         print("No colors found in the image.")
         return io.BytesIO()
 
-    # Debugging output
     print(f"Unique colors count: {len(unique_colors)}")
-    print(f"Counts: {counts[:10]}")  # Print first 10 counts for debugging
-    print(f"Color Values: {unique_colors[:10]}")  # Print first 10 color values for debugging
+    print(f"Counts: {counts[:10]}")
+    print(f"Color Values: {unique_colors[:10]}")
 
-    # Sort colors by frequency
     sorted_indices = np.argsort(counts)[::-1]
     sorted_colors = unique_colors[sorted_indices]
     sorted_counts = counts[sorted_indices]
 
-    # Plot each color as a separate bar
     plt.figure(figsize=(10, 5))
     for i, color in enumerate(sorted_colors):
         plt.bar(i, sorted_counts[i], color=color / 255, edgecolor='none')
@@ -56,13 +52,31 @@ def plot_color_distribution(image: Image.Image):
     return buf
 
 
+async def verify_recaptcha(recaptcha_response: str) -> bool:
+    url = "https://www.google.com/recaptcha/api/siteverify"
+    payload = {
+        "secret": RECAPTCHA_SECRET_KEY,
+        "response": recaptcha_response
+    }
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, data=payload)
+        result = response.json()
+        return result.get("success", False)
+
+
 @app.get("/", response_class=HTMLResponse)
 async def main(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+
 @app.post("/resize", response_class=HTMLResponse)
-async def resize(request: Request, image: UploadFile = File(...), scale: float = Form(...)):
+async def resize(request: Request, image: UploadFile = File(...), scale: float = Form(...),
+                 recaptcha_response: str = Form(...)):
     try:
+        is_valid_recaptcha = await verify_recaptcha(recaptcha_response)
+        if not is_valid_recaptcha:
+            raise HTTPException(status_code=400, detail="Invalid reCAPTCHA. Please try again.")
+
         original_image = Image.open(image.file)
         resized_image = resize_image(original_image, scale)
 
