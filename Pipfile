@@ -11,6 +11,8 @@ matplotlib = "*"
 pytest = "*"
 numpy = "*"
 httpx = "*"
+aiohttp = "*"
+asyncio = "*"
 
 [dev-packages]
 

@@ -7,6 +7,7 @@ import io
 import base64
 import numpy as np
 import httpx
+import asyncio
 
 app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")

@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab236276-4e61-4b2c-ab05-c468199b68f8" name="Changes" comment="necaptcha">
+    <list default="true" id="ab236276-4e61-4b2c-ab05-c468199b68f8" name="Changes" comment="recaptcha">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/render.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,25 +30,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/semen/PycharmProjects&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.result.html.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/semen/PycharmProjects/parcer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
-        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
@@ -58,7 +64,13 @@
       <updated>1718966031861</updated>
       <workItem from="1718966033227" duration="254000" />
       <workItem from="1718966296115" duration="4642000" />
-      <workItem from="1719259499937" duration="1551000" />
+      <workItem from="1719259499937" duration="3221000" />
+      <workItem from="1719263834716" duration="782000" />
+      <workItem from="1719264646220" duration="2459000" />
+      <workItem from="1719270463810" duration="1194000" />
+      <workItem from="1727064557842" duration="303000" />
+      <workItem from="1727064889400" duration="248000" />
+      <workItem from="1727065387199" duration="408000" />
     </task>
     <task id="LOCAL-00001" summary="necaptcha">
       <option name="closed" value="true" />
@@ -68,7 +80,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719261504393</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="recaptcha">
+      <option name="closed" value="true" />
+      <created>1719262011038</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719262011038</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -76,9 +96,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="necaptcha" />
-    <option name="LAST_COMMIT_MESSAGE" value="necaptcha" />
+    <MESSAGE value="recaptcha" />
+    <option name="LAST_COMMIT_MESSAGE" value="recaptcha" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fastapiimageresizer$main.coverage" NAME="main Coverage Results" MODIFIED="1719261651781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/fastapiimageresizer$main.coverage" NAME="main Coverage Results" MODIFIED="1719264395325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
 </project>
